@@ -1,4 +1,5 @@
 def brute_longest_substring(s)
+    error_handling(s)
     return 0 if s == ''
     arr = []
     array = s.split('')
@@ -13,6 +14,7 @@ def brute_longest_substring(s)
 end
 
 def sliding_longest_substring(s)
+    error_handling(s)
     n = s.length
     set = []
     ans = 0
@@ -31,4 +33,10 @@ def sliding_longest_substring(s)
     end
     ans
 end
+
+def error_handling(s)
+    raise(ArgumentError, 'argument must be a string') unless s.class == String
+    raise(ArgumentError, 'string must contain at least one character') unless s.length > 0
+end
+
 
