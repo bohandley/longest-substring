@@ -1,4 +1,4 @@
-def longest_substring(s)
+def brute_longest_substring(s)
     return 0 if s == ''
     arr = []
     array = s.split('')
@@ -12,7 +12,7 @@ def longest_substring(s)
     arr.sort_by { |el| el.length}[-1].length
 end
 
-def l_s(s)
+def sliding_longest_substring(s)
     n = s.length
     set = []
     ans = 0
@@ -32,4 +32,3 @@ def l_s(s)
     ans
 end
 
-p l_s('adbcghjiabbddabcdefghityop')
