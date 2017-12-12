@@ -9,7 +9,7 @@ describe 'longest_substring' do
     end
 
     it 'returns the longest unique substring' do
-      expect(longest_substring(s1)).to eq 'bcdef'
+      expect(longest_substring(s1)).to eq 5
     end
   end
 
