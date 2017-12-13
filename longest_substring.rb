@@ -13,30 +13,30 @@ def brute_longest_substring(s)
     arr.sort_by { |el| el.length}[-1].length
 end
 
-def sliding_longest_substring(s)
-    error_handling(s)
-    n = s.length
+def sliding_longest_substring(string)
+    error_handling(string)
+    length = string.length
     set = []
-    ans = 0
-    i = 0
-    j = 0
-    while i < n && j < n
-        if !set.include?(s[j])            
-            set.push(s[j])
-            j += 1
-            b = j-i
-            ans = ans > b ? ans : b
+    answer = 0
+    left_edge = 0
+    right_edge = 0
+    while left_edge < length && right_edge < length
+        if !set.include?(string[right_edge])            
+            set.push(string[right_edge])
+            right_edge += 1
+            width_of_window = right_edge-left_edge
+            answer = answer > width_of_window ? answer : width_of_window
         elsif
-            set.delete(s[i])
-            i += 1
+            set.delete(string[left_edge])
+            left_edge += 1
         end
     end
-    ans
+    answer
 end
 
-def error_handling(s)
-    raise(ArgumentError, 'argument must be a string') unless s.class == String
-    raise(ArgumentError, 'string must contain at least one character') unless s.length > 0
+def error_handling(string)
+    raise(ArgumentError, 'argument must be a string') unless string.class == String
+    raise(ArgumentError, 'string must contain at least one character') unless string.length > 0
 end
 
 
